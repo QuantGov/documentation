@@ -1,0 +1,4 @@
+site_name: Coming Soon
+theme: readthedocs
+pages:
+    - Home: 'index.markdown'

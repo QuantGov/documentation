@@ -25,9 +25,7 @@ Published Datasets using the QuantGov framework include:
 
 -   [RegData] : A dataset quantifying federal regulation in the United States from 1975-2014, and classifying regulations using the North American Industry Classification System
 
-If you have a published dataset that uses QuantGov that you would like us to add to this list, please contact us \[here\].
-
-## Research Using QunatGov Data
+If you have a published dataset that uses QuantGov that you would like us to add to this list, please contact us [here].
 
 ## Citing QuantGov
 
@@ -47,4 +45,5 @@ If you use QuantGov, please cite us:
   [QuantGov/project]: https://github.com/QuantGov/project
   [QuantGov/documentation]: https://github.com/QuantGov/documentation
   [RegData]: http://regdata.org/data
+  [here]: mailto:osherouse@mercatus.gmu.edu
 

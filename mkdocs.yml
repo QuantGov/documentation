@@ -1,4 +1,9 @@
-site_name: Coming Soon
+site_name: QuantGov
 theme: readthedocs
 pages:
     - Home: 'index.markdown'
+    - Architecture: 'architecture.markdown'
+    - Corpus: 'corpus.markdown'
+    - Estimator: 'estimator.markdown'
+    - Project: 'project.markdown'
+    - Databank: 'databank.markdown'

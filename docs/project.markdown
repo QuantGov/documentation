@@ -17,9 +17,9 @@ The easiest way to write a new project is to fork the most similar official proj
 
 Official QuantGov projects are branches of the project repository. The current official projects are:
 
--   The generic project, which uses one training corpus to train an estimator, analyzes a target corpus, and merges the metadata and estimator results into a single dataset.
+-   The generic project, which uses one training corpus to train an estimator, analyzes a target corpus, and merges the metadata and estimator results into a single dataset. Download the generic corpus [here], or fork on GitHub [here][1].
 
--   The Executive Order Topic Modeling Project, which uses the official NMF estimator to analyze the official Executive Orders corpus.
+-   The Executive Order Topic Modeling Project, which uses the official NMF estimator to analyze the official Executive Orders corpus. Download the Executive Orders corpus [here][2], or fork on GitHub [here][3].
 
 ## Submitting a New Official Project
 
@@ -27,4 +27,8 @@ Complete projects may be considered to be added as official QuantGov project. If
 
   [estimator interface]: estimator.markdown#the-estimator-interface
   [recursive function of make]: https://www.gnu.org/software/make/manual/html_node/Recursion.html#Recursion
+  [here]: https://github.com/QuantGov/project/archive/master.zip
+  [1]: https://github.com/QuantGov/project
+  [2]: https://github.com/QuantGov/project/tree/executive-orders-nmf
+  [3]: https://github.com/QuantGov/project/archive/executive-orders-nmf.zip
 

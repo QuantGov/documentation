@@ -28,7 +28,7 @@ Corpora, estimators, and projects all use the program [Make] to manage workflow.
 
 Perhaps most importantly, Make can tie together the pieces of a project without having to hard-code information about each other. Multiple projects can use the same predictor or corpus, because the corpus and predictor do not need to know anything about each other for the final analysis to complete successfully.
 
-The makefiles in the standard project are fully commented and can be taken as examples. The [Make manual][Make] also provides extensive documentation. Make is usually installed as part of OS X or Linux. Windows users can install it from [GnuWin32], as part of [Gow], or with the `make` or `gnuwin32` packages in the Anaconda Python distribution.
+The makefiles in the standard project are fully commented and can be taken as examples. The [Make manual][Make] also provides extensive documentation. Make is usually installed as part of OS X or Linux. Windows users can install it from [GnuWin32], or as part of [Gow].
 
   [Unix philosophy]: http://www.catb.org/esr/writings/taoup/html/ch01s06.html
   [corpus]: corpus.markdown

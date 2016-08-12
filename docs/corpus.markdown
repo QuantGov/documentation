@@ -39,9 +39,8 @@ The first problem will determine the scripts needed for downloading or otherwise
 
 Official QuantGov corpora are branches of the corpus repository. The current official corpora are:
 
--   The generic corpus, a corpus which serves the content of all files in the `data/clean` folder, using the filename as the index. The generic corpus generates a restriction count and word count as metadata.
--   The Executive Orders corpus, which represents all Executive Orders as collected by XXX.
--   The 20newsgroups corpus, which represents the classic twenty newsgroups dataset.
+-   The generic corpus, a corpus which serves the content of all files in the `data/clean` folder, using the filename as the index. The generic corpus generates a restriction count and word count as metadata. Download the generic corpus [here], or fork on GitHub [here][1].
+-   The Executive Orders corpus, which represents all Executive Orders as collected by the [American Presidency Project]. Download the Executive Orders corpus [here][2], or fork on GitHub [here][3].
 
 ## Submitting a New Official Corpus
 
@@ -50,4 +49,9 @@ Complete corpora may be considered to be added as official QuantGov copora. If a
   [iterable]: https://docs.python.org/3/glossary.html#term-iterable
   [generator]: https://docs.python.org/3/glossary.html#term-generator
   [databank]: databank.markdown
+  [here]: https://github.com/QuantGov/corpus/archive/master.zip
+  [1]: https://github.com/QuantGov/corpus
+  [American Presidency Project]: http://www.presidency.ucsb.edu/
+  [2]: https://github.com/QuantGov/corpus/archive/executive-orders.zip
+  [3]: https://github.com/QuantGov/corpus/tree/executive-orders
 

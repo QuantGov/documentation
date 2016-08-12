@@ -46,9 +46,9 @@ Official QuantGov estimators are branches of the estimator repository. The curre
     -   Trains the model described in `data/model.config`; and
     -   Analyzes an arbitrary corpus using the trained model.
 
-    For many tasks, all that is required to create a new estimator is to edit `scripts/models.py` to include the desired candidate algorithms and hyperparameters, and to set the correct scoring function in `scripts/evaluate.py`. See the `README` for the generic estimator for more details.
+    For many tasks, all that is required to create a new estimator is to edit `scripts/models.py` to include the desired candidate algorithms and hyperparameters, and to set the correct scoring function in `scripts/evaluate.py`. See the `README` for the generic estimator for more details. Download the generic estimator [here] or fork it on GitHub [here][1].
 
--   The NMF estimator, a modification of the Generic estimator which trains a non-negative matrix factorization model for topic modeling.
+-   The NMF estimator, a modification of the Generic estimator which trains a non-negative matrix factorization model for topic modeling. Download the NMF estimator [here][2] or fork it on GitHub [here][3].
 
 ## Submitting a New Official Estimator
 
@@ -57,4 +57,8 @@ Complete estimators may be considered to be added as official QuantGov estimator
   [phony targets]: https://www.gnu.org/software/make/manual/make.html#Phony-Targets
   [corpus driver interface]: corpus.markdown#the-corpus-driver-interface
   [recursive make call]: https://www.gnu.org/software/make/manual/html_node/Recursion.html#Recursion
+  [here]: https://github.com/QuantGov/estimator/archive/master.zip
+  [1]: https://github.com/QuantGov/estimator
+  [2]: https://github.com/QuantGov/estimator/archive/nmf.zip
+  [3]: https://github.com/QuantGov/estimator/tree/nmf
 

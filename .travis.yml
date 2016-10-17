@@ -1,6 +1,6 @@
 language: python
 python: '3.5'
-script: mkdocs build --clean
+script: mkdocs build
 deploy:
     provider: s3
     access_key_id:
@@ -9,3 +9,6 @@ deploy:
         secure: djOllP2gKi0uh1y5XRDxraLwVqV8X70FPhnBKc/8/54Y0VqXBUBDzWt7c4NjXTw6GsXGMEybfB2P5aDUb0vVmobdBCkmQPPdvMcPFsHlG+/wtNbcDGbvMGUD2qC5fYDeyiTmVuy9CoJ8NwedmdKq8tts2RGPA4GX+JAs8qxXqqwaxTqx3VFrs6HDJCclUNxt9yTI91E5un9Gp8ufoZnjlQANVLt2snX59snBRF22G4dqpyahfpqk7/qNmidlXMxbWfnj6sj/dYKGcDHl+W8x+A+Z26CJenvY3z0UqFcnSPHnG1V4gvPp/94Rzxi+HG4weP1vPKNLvsM7UHubqA/iF8TAz1e/1JTAamK8j107cIjSzFigrO6VzmPXs2nmzNcDHF9o/SJk1IA+K3g5Lqgqja7Gf+ARCbRzQ7HgnJw8Nk4PxmbqMlV5tgcwoxv9+G+7C1ITw97FxxXueYCTNwHqO40K29l0R3xO9M1yzQ9Cna+tYzS0vaaI4tk+DD5ldoZgwsSgRgN+prhBGnlUP0IeY+rEnQ1gl8CORT4EIkDDv7D+i7rqs1N5/j3NwsISBQUNyjt5wUVDuIGEOjYBtSQ3r0gFhBeWe+qkJt4YSAw0ryYtt1N827eq9qHoyR4b734/x/EL6aRQkNRy0LotBl0mg6+1legRmZy0ffgtq5aZ9z0=
     bucket: docs-quantgov
     skip_cleanup: true
+    local_dir: site
+    on:
+        branch: master

@@ -1,4 +1,4 @@
-site_name: QuantGov
+site_name: QuantGov Documentation
 theme: readthedocs
 pages:
     - Home: 'index.markdown'

@@ -2,9 +2,10 @@ addons:
     apt:
         packages: 
             - texlive
+sudo: required
 before_script:
     - wget https://github.com/jgm/pandoc/releases/download/1.18/pandoc-1.18-1-amd64.deb
-    - dpkg -i pandoc-*.deb
+    - sudo dpkg -i pandoc-*.deb
 language: python
 python: '3.5'
 script: 

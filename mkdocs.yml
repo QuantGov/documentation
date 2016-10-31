@@ -1,5 +1,6 @@
 site_name: QuantGov Documentation
 theme: readthedocs
+google_analytics: ['UA-86588008-2', 'auto']
 pages:
     - Home: 'index.markdown'
     - Architecture: 'architecture.markdown'

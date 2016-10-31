@@ -1,9 +1,7 @@
 addons:
     apt:
         packages: 
-            - texlive
-            - lmodern
-            - upquote
+            - texlive-latex-recommended
 sudo: required
 dist: trusty
 before_script:

@@ -4,8 +4,8 @@ addons:
 language: python
 python: '3.5'
 script: 
-    -mkdocs build
-    -pandoc -o site/quantgov_working_paper.pdf manual_frontmatter.markdown docs\architecture.markdown docs\corpus.markdown docs\estimator.markdown docs\project.markdown docs\project.markdown
+    - mkdocs build
+    - pandoc -o site/quantgov_working_paper.pdf manual_frontmatter.markdown docs\architecture.markdown docs\corpus.markdown docs\estimator.markdown docs\project.markdown docs\project.markdown
 deploy:
     provider: s3
     access_key_id:

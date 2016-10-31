@@ -1,7 +1,7 @@
 addons:
     apt:
         packages: 
-            - texlive-latex-recommended
+            - texlive-latex-extra
 sudo: required
 dist: trusty
 before_script:

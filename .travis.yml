@@ -3,6 +3,7 @@ addons:
         packages: 
             - texlive
             - lmodern
+            - upquote
 sudo: required
 dist: trusty
 before_script:

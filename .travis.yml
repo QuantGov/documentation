@@ -2,6 +2,7 @@ addons:
     apt:
         packages: 
             - texlive
+            - lmodern
 sudo: required
 before_script:
     - wget https://github.com/jgm/pandoc/releases/download/1.18/pandoc-1.18-1-amd64.deb

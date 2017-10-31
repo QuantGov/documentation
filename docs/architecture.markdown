@@ -17,7 +17,7 @@ As an example, as of this writing the RegData project uses two corpora (one repr
 
 ## Snakemake for Workflow Management
 
-Corpora, estimators, and projects all use the program [Snakemake](http://snakemake.readthedocs.io/en/stable/) to manage workflow. Snakemake allows us to write *rules* that define out to create *output files* from *input files*. Snakemake allows users to create clear separation of tasks without mentally keeping track of every moving part, making it perfect for managing QuantGov workflows.
+Corpora, estimators, and projects all use the program [Snakemake](http://snakemake.readthedocs.io/en/stable/) to manage workflow. Snakemake allows us to write *rules* that define how to create *output files* from *input files*. Snakemake allows users to create clear separation of tasks without mentally keeping track of every moving part, making it perfect for managing QuantGov workflows.
 
 Perhaps most importantly, Snakemake can tie together the pieces of a project without having to hard-code information about each other. Multiple projects can use the same predictor or corpus, because the corpus and predictor do not need to know anything about each other for the final analysis to complete successfully.
 

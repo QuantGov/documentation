@@ -2,37 +2,28 @@
 
 ## Basic Structure
 
-An estimator represents a machine learning algorithm, such as those for classification, regression, clustering, or topic modeling classes. The root directory of an estimator should contain the following:
+An estimator is the file structure and scripts that retain and manage a classification, regression, or unsupervised learning task. The root directory of an estimator should contain the following:
 
--   A `makefile` to manage the workflow of the estimator. The makefile should implement the estimator interface (see below).
+-   A subdirectory named `data` containing the results from the evaluation and training of the estimator, alongside any intermediate data.
 -   A subdirectory named `scripts` containing the scripts needed to evaluate candidate models and train the selected candidate using a trainer corpus and analyze a target corpus using the trained model
--   A subdirectory named `data` that holds any intermediate data generated in the evaluation and training of the estimator.
+-   A `snakefile` to manage the workflow of the estimator. The snakefile should implement the estimator interface (see below).
 
-## The Estimator Interface
+## The Snakefile Interface
 
-The `makefile` for an estimator should use the following variables. Default values can be set for these variables in the `makefile`, because they can be overridden in project `makefiles`.
+The `snakefile` for an estimator should use the following variables, defined in the `config.yaml` file (located in the root directory alongside `snakefile`):
 
--   `TRAINER_CORPUS` should be a path to the corpus needed to evaluate and train the estimator.
--   `TARGET_CORPUS` should be a path to the corpus to be analyzed by the trained estimator.
--   `RESULTS` should be the output path for the results of the analysis of the target corpus.
-
-The `makefile` for an estimator should also provide two [phony targets](https://www.gnu.org/software/make/manual/make.html#Phony-Targets):
-
--   `evaluate` should run the scripts that evaluate candidate models and propose one for training with the full corpus.
--   `estimate` should analyze the target corpus with the trained model
-
-Phony targets are used to keep estimators as language-agnostic as possible.
+-   `trainer_corpus` should be a path to the corpus needed to evaluate and train the estimator.
+-   `folds` should be the number of times to fold the training data for testing.
+-   `scoring` should be the method for testing the trained estimator.
 
 ## Writing a new Estimator
 
 The easiest way to write a new estimator is to fork the most similar official estimator (see below) and modify it for the relevant task. Generally, the tasks for writing an estimator are:
 
--   Extracting features from the training document
--   Testing one or more algorithms for the estimation task, possibly tuning a set of parameters for each algorithm
--   Selecting an algorithm from the candidates tested and training it using the full trainer corpus
+-   Extract features from the training document.
+-   Test one or more algorithms for the estimation task, possibly tuning a set of parameters for each algorithm.
+-   Select an algorithm from the candidates tested and training it using the full trainer corpus.
 -   Constructing a pipeline for feature extraction and analysis of other corpora, using the [corpus driver interface](corpus.markdown#the-corpus-driver-interface).
-
-Estimators should always make a [recursive make call](https://www.gnu.org/software/make/manual/html_node/Recursion.html#Recursion) on the drivers of the training and target corpora before using them to ensure that they are up to date.
 
 ## Official QuantGov Estimators
 

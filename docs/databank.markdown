@@ -12,5 +12,5 @@ Some cases where a databank might be useful are:
 
 From the perspective of the corpus, estimator, or project, the databank should be considered read-only; data that is generated or modified should be stored in the `data` folder, not the databank.
 
-If a corpus, estimator, or project requires a databank, a README file should explain how to obtain it. The paths to databanks employed should be stored as variables in the relevant `makefile` so that they only need to be changed once.
+If a corpus, estimator, or project requires a databank, a README file should explain how to obtain it. The paths to databanks employed should be stored as variables in the relevant `snakefile` so that they only need to be changed once.
 

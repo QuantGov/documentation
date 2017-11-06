@@ -4,14 +4,13 @@
 
 A QuantGov project brings together corpora and projects to create a new dataset. The root directory for a project should contain:
 
--   A `makefile` to manage the workflow of the project.
--   A subdirectory named `scripts` containing any scripts needed to clean, combine, or polish metadata and analyses from the corpora and projects
--   A subdirectory named `data` that holds any intermediate data generated in the creation of the dataset
--   Optionally, a subdirectory named `release` that holds the finalized dataset or datasets and any other information as suitable for distribution.
+-   A subdirectory named `data` that holds data generated in the creation of the dataset
+-   A subdirectory named `scripts` containing any scripts needed to clean, combine, or polish metadata and analyses from the corpora and estimators
+-   A `snakefile` to manage the workflow of the project
 
 ## Writing a New Project
 
-The easiest way to write a new project is to fork the most similar official project (see below) and modify it for the relevant task. The `makefile` for a project should make use of the [estimator interface](http://docs.quantgov.org/estimator/#the-estimator-interface), and of the corpus feature of providing a combined metadata file in the file `data/metadata.csv`. Projects should use the [recursive function of make](https://www.gnu.org/software/make/manual/html_node/Recursion.html#Recursion), to ensure that the desired files are created and up to date before putting them in their final formats.
+The easiest way to write a new project is to fork the most similar official project (see below) and modify it for the relevant task. The `snakefile` for a project should make use of the [estimator interface](http://docs.quantgov.org/estimator/#the-estimator-interface), and of the corpus feature of providing a combined metadata file in the file `data/metadata.csv`. Projects should use the [snakefile modularization](http://snakemake.readthedocs.io/en/stable/snakefiles/modularization.html), to ensure that the desired files are created and up to date before putting them in their final formats.
 
 ## Official QuantGov projects
 

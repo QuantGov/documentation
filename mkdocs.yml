@@ -3,6 +3,9 @@ theme: readthedocs
 google_analytics: ['UA-86588008-2', 'auto']
 pages:
     - Home: 'index.markdown'
+    - Tutorial:
+        - Introduction: 'tutorial/introduction.markdown'
+        - Prerequisites: 'tutorial/prerequisites.markdown'
     - Architecture: 'architecture.markdown'
     - Corpus: 'corpus.markdown'
     - Estimator: 'estimator.markdown'

@@ -45,4 +45,7 @@ The QuantGov framework and all dependencies can be installed with `pip`, a
 package manager that is included with recent versions of Python. To install
 QuantGov, run the following command:
 
-    pip install -U quantgov
+``` {.bash}
+pip install -U quantgov
+```
+

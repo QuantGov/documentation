@@ -7,6 +7,7 @@ pages:
         - Introduction: 'tutorial/introduction.markdown'
         - Prerequisites: 'tutorial/prerequisites.markdown'
         - Building Your First Corpus: 'tutorial/first_corpus.markdown'
+        - Analyzing a Corpus: 'tutorial/corpus_analysis.markdown'
     - Architecture: 'architecture.markdown'
     - Corpus: 'corpus.markdown'
     - Estimator: 'estimator.markdown'

@@ -20,6 +20,7 @@ file called `driver.py`, and a folder named `data`. The file structure should
 look like this:
 
     corpus-fr2016/
+        .gitignore
         driver.py
         Snakefile
         data/

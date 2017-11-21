@@ -169,3 +169,8 @@ attribute, and evaluates to `True` if that element is equal to the string
 "world". Otherwise, it evaluates to `False`. This gives us the labels we need
 to train our algorithm. Save the file.
 
+### Candidate Model Specification
+
+Our last step before we can evaluate our estimator is to specify a set of
+candidate models with ranges of parameters.
+

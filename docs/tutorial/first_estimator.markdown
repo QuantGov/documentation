@@ -171,6 +171,97 @@ to train our algorithm. Save the file.
 
 ### Candidate Model Specification
 
-Our last step before we can evaluate our estimator is to specify a set of
+Our next step before we can evaluate our estimator is to specify a set of
 candidate models with ranges of parameters.
 
+We do this in the `candidate_models.py` script, by defining a sequence of
+`CandidateModel` objects that specify each model (often several steps collected
+together in a scikit-learn
+[`Pipeline`](http://scikit-learn.org/stable/modules/generated/sklearn.pipeline.Pipeline.html))
+and a dictionary of parameters to test, where the keys are the parameter, and
+the dictionary values are sequences of the parameter values to test.
+
+To ease initial forays into using these models, the QuantGov libraries includes
+starter sets for different types of problems. The default QuantGov estimator
+uses the candidate set for a binary or multiclass classification, which is
+proper for the problem being solved in this tutorial. This candidate set
+consists of two pipelines. The first uses a Term-Frequency-Inverse Document
+Frequency (TF-IDF) algorithm to normalize word counts and a Logistic Regression
+Classifier with a ridge penalty for classification. The second uses a TF-IDF
+for normalization and a Random Forest Classifier for classification. The
+Logistic Regression, or Logit, model is tested with different penalty
+coefficients from -0.01 to 100. The Random Forests model is tested with
+different numbers of trees from 5 to 100. For more on specifying candidate
+models, see the [Estimator documentation](../estimator.markdown)
+
+### Configuring the Estimator
+
+The final step before evaluating the candidate models is editing the
+`config.yaml` file to specify the training corpus and evaluation method.
+
+```
+folds: 5
+scoring: f1
+trainer_corpus: path/to/trainer/corpus
+```
+
+This file has three parameters we can set. The `folds` parameter specifies how
+many folds to use in cross-validation; 5 and 10 are widely used values. The
+`scoring` parameter sets the metric used for measuring performance. The F1
+score is a good default for classification because it balances the ability of
+the estimator to identify true positive (recall) and its ability not to
+identify true negative documents as positive (precision).
+
+The `trainer_corpus` line should be edited to match the path of the corpus used
+for training documents. If you started the training corpus and estimator in the
+same folder, edit that line as follows:
+
+```
+folds: 5
+scoring: f1
+trainer_corpus: ../corpus-fr-2015
+```
+
+Otherwise, use the appropriate full or relative path to the 2015 Federal
+Register corpus for that value.
+
+## Evaluating the Candidate Models
+
+In the command line, navigate to the `estimator-fr-section`. As we do in the
+corpus, we use Snakemake to define our workflow, and you can see the rules
+defined in the default Snakefile by running the command:
+
+```bash
+snakemake -l
+```
+
+The `default` rule is actually simply a mapping to the `evaluate` rule, because
+we want to give ourselves the option of selecting a model other than the one
+suggested by the evaluation framework. So first, run the `evaluate` rule
+directly:
+
+```bash
+snakemake evaluate
+```
+
+This command will use an exhaustive search approach to model evaluation, trying
+every candidate model with every combination of parameters. It evaluates models
+using cross validation, holding out one fold (from the folds specified in the
+configuration file) and training the model on the rest, then scoring the
+results from predicting the held-out fold. This process is repeated holding out
+each fold once, producing a mean and standard deviation which describe the
+probability distribution of the underlying metric. 
+
+When the command finishes running, there will be two new files in the `data`
+subdirectory of the estimator directory: `model_evaluation.csv` and
+`model.cfg`. Open the `model_evaluation.csv` file in your favorite spreadsheet
+editor. Each row of the CSV represents a single candidate model and set of
+parameters. The most directly relevant columns are `mean_train_score` and
+`std_train_score`, which contain  the mean and standard distribution for the
+evaluation metric---in our case, the F1 score---for that model with that set of
+parameters. A good rule of thumb is to use the simplest model that's within one
+standard deviation of the best-performing version. 
+
+In our case, the best-performing model is generally the Logit model with a
+regularization coefficient of 100. If we open the `model.cfg` file in a text
+editor, we see that this is the model that has been pre-loaded.

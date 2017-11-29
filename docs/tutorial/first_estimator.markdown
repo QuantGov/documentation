@@ -265,3 +265,17 @@ standard deviation of the best-performing version.
 In our case, the best-performing model is generally the Logit model with a
 regularization coefficient of 100. If we open the `model.cfg` file in a text
 editor, we see that this is the model that has been pre-loaded.
+
+
+## Training the Selected Model
+
+All that remains is to actually train the model that we have configured in the
+`model.cfg` file using all the trainer documents. This can be accomplished
+using the following command in the estimator folder:
+
+```bash
+snakemake train
+```
+
+After this command runs, the estimator is ready to be used in a QuanttGov
+project.

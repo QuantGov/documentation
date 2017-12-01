@@ -122,5 +122,5 @@ driver = quantgov.corpora.RecursiveDirectoryCorpusDriver(
 )
 ```
 
-Save the file. Congratulations! The corpus is now ready for [analysis](https://github.com/jnelson16/documentation/blob/tutorial/docs/tutorial/corpus_analysis.markdown).
+Save the file. Congratulations! The corpus is now ready for analysis.
 

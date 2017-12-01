@@ -42,7 +42,7 @@ like this:
 name: quantgov-dataset
 estimator: path/to/estimator
 target_corpus: path/to/target/corpus
-prediction_type: relevance:x
+prediction_type: relevance
 probability: False
 ```
 
@@ -59,7 +59,7 @@ folder, you should edit the file to look like this:
 
 ``` {.yaml}
 name: 2016-sections
-estimator: ../estimator-fr-section
+estimator: ../estimator-fr-sections
 target_corpus: ../corpus-fr-2016
 prediction_type: relevance
 probability: False
@@ -98,7 +98,6 @@ in the Project's `data` folder, so that the project structure looks like this:
             2016-sections/
                 fr-2016_metadata.csv
                 fr-2016_fr-section_relevance.csv
-        results.csv
 
 The `fr-2016_metadata.csv` file is the metadata from the `fr-2016` corpus. The
 `fr-2016_fr-section_relevance.csv` file contains the actual prediction results.

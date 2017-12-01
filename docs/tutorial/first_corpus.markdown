@@ -11,7 +11,7 @@ With the QuantGov library installed, we can create our first corpus with the
 following command:
 
 ``` {.bash}
-quantgov start corpus-fr2016
+quantgov start corpus corpus-fr2016
 ```
 
 That command will create a starter corpus in a new folder called
@@ -33,7 +33,7 @@ can be safely ignored.
 
 The documents we will be using are proposed rules published in the *Federal
 Register* in 2016. You can download these documents
-[here](https://s3.amazonaws.com/quantgov-datasets/workshop/2016_frdocs.zip) The
+[here](https://s3.amazonaws.com/quantgov-datasets/workshop/2016_frdocs.zip). The
 *Federal Register* is divided into six different sections by topic, and the
 dataset contains the first 100 rules published in each section that were not
 corrections or withdrawals. Inside the zip folder, the documents are organized
@@ -122,5 +122,5 @@ driver = quantgov.corpora.RecursiveDirectoryCorpusDriver(
 )
 ```
 
-Save the file. Congratulations! The corpus is now ready for analysis.
+Save the file. Congratulations! The corpus is now ready for [analysis](documentation/docs/tutorial/corpus_analysis.markdown).
 

@@ -29,7 +29,7 @@ quantgov start corpus corpus-fr-2015
 
 Download the document archive
 [here](https://s3.amazonaws.com/quantgov-datasets/workshop/2015_frdocs.zip). As
-you did with the 2016, corpus, create a new `clean` folder in the corpus's
+you did with the 2016 corpus, create a new `clean` folder in the corpus's
 `data` folder, and extract the folders from the archive there so that the
 section folders are directly within the `clean` folder. Then modify the
 corpus's driver.py to look like this:
@@ -58,7 +58,7 @@ The estimator is its own separate component. In the same folder where you
 created the two corpora, start an estimator with the command:
 
 ``` {.bash}
-quantgov create estimator estimator-fr-sections
+quantgov start estimator estimator-fr-sections
 ```
 
 The estimator has the following structure:
@@ -81,7 +81,7 @@ Once again, the .gitignore files will be hidden on Mac and Linux.
 Before text can be analyzed it has to be transformed into arrays of numbers, or
 *vectorized*. The default Vectorizer is laid out in `vectorize_trainers.py`,
 and is an unmodified [scikit-learn
-`CountVectorizer`](http://scikit-learn.org/stable/modules/generated/sklearn.feature_extraction.text.CountVectorizer.html)
+`CountVectorizer`](http://scikit-learn.org/stable/modules/generated/sklearn.feature_extraction.text.CountVectorizer.html).
 A `CountVectorizer` does exactly what its name implies: it counts individual
 words, mapping each word it encounters to a specific position in the document
 vector. Each individual document is mapped to a vector with a count of how many
@@ -277,5 +277,5 @@ using the following command in the estimator folder:
 snakemake train
 ```
 
-After this command runs, the estimator is ready to be used in a QuanttGov
+After this command runs, the estimator is ready to be used in a QuantGov
 project.

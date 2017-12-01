@@ -11,15 +11,15 @@ With the QuantGov library installed, we can create our first corpus with the
 following command:
 
 ``` {.bash}
-quantgov start corpus-fr2016
+quantgov start corpus corpus-fr-2016
 ```
 
 That command will create a starter corpus in a new folder called
-`corpus-fr2016`. Inside that folder you will see a file called `Snakefile`, a
+`corpus-fr-2016`. Inside that folder you will see a file called `Snakefile`, a
 file called `driver.py`, and a folder named `data`. The file structure should
 look like this:
 
-    corpus-fr2016/
+    corpus-fr-2016/
         .gitignore
         driver.py
         Snakefile
@@ -33,7 +33,7 @@ can be safely ignored.
 
 The documents we will be using are proposed rules published in the *Federal
 Register* in 2016. You can download these documents
-[here](https://s3.amazonaws.com/quantgov-datasets/workshop/2016_frdocs.zip) The
+[here](https://s3.amazonaws.com/quantgov-datasets/workshop/2016_frdocs.zip). The
 *Federal Register* is divided into six different sections by topic, and the
 dataset contains the first 100 rules published in each section that were not
 corrections or withdrawals. Inside the zip folder, the documents are organized
@@ -49,7 +49,7 @@ the first step, create a new folder in the corpus's `data` folder named
 `clean`. Then unzip the downloaded file and copy the section folders into the
 `data/clean` folder. The file structure should now look like this:
 
-    corpus-fr2016/
+    corpus-fr-2016/
         driver.py
         Snakefile
         data/

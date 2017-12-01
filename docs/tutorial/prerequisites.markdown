@@ -22,12 +22,12 @@ cross-platform options include:
 
 -   [SublimeText](https://www.sublimetext.com/): A sophisticated text editor
     for code, markup, and prose
--   [Atom](https://atom.io/) A hackable text editor for the 21st Century
+-   [Atom](https://atom.io/): A hackable text editor for the 21st Century
 
 ## Installing Python
 
 QuantGov makes extensive use of the Python programming language and Python
-libraries (although it can be extended to use other languages as well. If you
+libraries (although it can be extended to use other languages as well). If you
 do not have Python installed already, the easiest way is to use the Anaconda
 Python distribution. Go to <https://conda.io/miniconda.html> and use the Python
 3 (**not** Python 2), installer appropriate for your system (most users will

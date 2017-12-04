@@ -16,12 +16,14 @@ quantgov start corpus corpus-fr-2016
 
 That command will create a starter corpus in a new folder called
 `corpus-fr-2016`. Inside that folder you will see a file called `Snakefile`, a
-file called `driver.py`, and a folder named `data`. The file structure should
-look like this:
+file called `driver.py`, and a folder named `data`. To veiw the folder structure, 
+type `dir` in the command line. The file structure should look like this:
 
     corpus-fr-2016/
         .gitignore
         driver.py
+        README.md
+        requirements
         Snakefile
         data/
             .gitignore

@@ -17,8 +17,8 @@ quantgov start corpus corpus-fr-2016
 That command will create a starter corpus in a new folder called
 `corpus-fr-2016`. Inside that folder you will see a file called `Snakefile`, a
 file called `driver.py`, and a folder named `data`. Also, both a `README` 
-and a `requirements` file were added to offer additional information. To veiw the folder 
-structure, type `dir` in the command line. The file structure should look like this:
+and a `requirements` file were added to offer additional information. 
+The file structure should look like this:
 
     corpus-fr-2016/
         .gitignore
@@ -42,12 +42,11 @@ dataset contains the first 100 rules published in each section that were not
 corrections or withdrawals. Inside the zip folder, the documents are organized
 by folders corresponding to the sections. The file names are the order in which
 the rules for that section were obtained, and the files contain the text of the
-rule proposal. So for example, the file at `money/0032.txt` inside the zip file
-is the 32nd proposed rule that appeared in the *Federal Register*'s section
-called "Money" in 2016.
+rule proposal. For example, the file at `money/0032.txt` is the 32nd proposed 
+rule that appeared in the *Federal Register*'s section called "Money" in 2016.
 
 To turn this set of documents into a QuantGov corpus, we need to do two things:
-add them to the file structure, and tell `driver.py` how to provide them. To do
+add them to the file structure, and tell `driver.py` how to use them. To do
 the first step, create a new folder in the corpus's `data` folder named
 `clean`. Then unzip the downloaded file and copy the section folders into the
 `data/clean` folder. The file structure should now look like this:
@@ -55,6 +54,7 @@ the first step, create a new folder in the corpus's `data` folder named
     corpus-fr-2016/
         driver.py
         Snakefile
+        [plus the README, requirements, .gitignore]
         data/
             .gitignore
             clean/
@@ -70,11 +70,11 @@ the first step, create a new folder in the corpus's `data` folder named
 
 ## Deciding on an Index
 
-The corpus index is used to identify each document uniquely withing the corpus.
+The corpus index is used to identify each document uniquely within the corpus.
 It can be as simple as the name of the file that the text is stored in, but can
 also provide useful information. For example, the index used for the *Code of
-Federal Regulations* corpus used to create RegData has three parts: the year
-the in which the edition of the CFR was published, the CFR title, and the
+Federal Regulations* corpus, used to create RegData, has three parts: the year
+in which the edition of the CFR was published, the CFR title, and the
 individual part number. It is generally best to choose an index that
 corresponds to the natural structure of the documents you're using.
 
@@ -84,7 +84,7 @@ its number within that section.
 
 ## Editing the Driver
 
-The corpus driver tells the rest of the QuantGov system how to understand the
+The corpus's driver tells the rest of the QuantGov system how to understand the
 corpus. The driver is what actually reads the documents, identifies their
 index, and provides them to other programs for analysis.
 
@@ -109,8 +109,8 @@ driver = quantgov.corpora.RecursiveDirectoryCorpusDriver(
 )
 ```
 
-This is already almost exactly what we need. The one change we need to make is
-to the `index_label` argument being passed in: we need it to reflect the two
+The driver is almost set up with exactly what we need. The one change we need to make
+is to modify the `index_label` argument being passed in: we need it to reflect the two
 levels of our index---the *Federal Register* section and document number. Edit
 the driver file so that it looks like this:
 

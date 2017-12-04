@@ -41,5 +41,5 @@ Official QuantGov corpora are branches of the corpus repository, available on Gi
 
 ## Submitting a New Official Corpus
 
-Complete corpora may be considered to be added as official QuantGov copora. If accepted, a new branch will be created to which a pull request can be made. Additions to the official corpora are at the sole discretion of the QuantGov team. Please email info@quantgov.org with any questions regarding adding a corpus to the official QuantGov copora.
+Complete corpora may be considered to be added as official QuantGov copora. If accepted, a new branch will be created to which a pull request can be made. Additions to the official corpora are at the sole discretion of the QuantGov team. Please email info@quantgov.org with any questions about adding a corpus to the official QuantGov copora.
 

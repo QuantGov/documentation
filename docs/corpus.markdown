@@ -1,14 +1,20 @@
 # The QuantGov Corpus
 
-We can create our first corpus with the following command:
+## Getting Started
+
+With the quantgov library installed, create a corpus with the following command:
 
 ``` {.bash}
 quantgov start corpus CORPUS_NAME
 ```
- 
+
+See the [tutorial](http://docs.quantgov.org/tutorial/first_corpus) for more details.
+
 ## Basic Structure
 
-A corpus represents a set of documents, and implements the corpus driver interface. The root directory for a corpus should contain:
+A corpus represents a set of documents and organizes them in a way that allows the user to perform analysis on the text. Creating a corpus is the first step for producing a dataset from a set of documents, like the RegData project which produces data from *The Code of Federal Regulations*.
+
+The root directory for a QuantGov corpus should contain:
 
 - A `Snakefile` to manage the workflow of the corpus.
 - A module named `driver.py` that implements the corpus driver interface.
@@ -49,7 +55,14 @@ driver = quantgov.corpora.NamePatternCorpusDriver(
 )
 ```
 
-- **Index driver** serves a corpus using an index csv where the final column is the path to the file and the other columns form the index. The index labels are taken from the csv header and the index values are taken from the csv contents.
+- **Index driver** serves a corpus using an index csv where the final column is the path to the file and the other columns form the index. The index labels are taken from the csv header and the index values are taken from the csv contents. Below is an example of the code that could be used to produce an index driver.
+
+```
+driver = quantgov.corpora.IndexDriver(
+    directory=Path(__file__).parent.joinpath('data', 'clean'),
+    index='data/index.csv'
+)
+```
 
 ## Corpus Metadata
 
@@ -57,19 +70,19 @@ Relevant metadata will vary from corpus to corpus. Metadata can be generated fro
 
 ## Builtin Functions
 
-The QuantGov library includes several builtin text-analysis functions for use on the files in the corpus:
+The QuantGov library includes several builtin text-analysis functions for use on the documents in the corpus:
 
-- **Word counter** counts the number of words in each file. The word pattern is defined by a regular expression.
+- **Word counter** counts the number of words in each document. A "word" can be user-defined by a regular expression. The default regular expression is `r'\b\w+\b'`.
 
-- **Occurrence counter** counts the number of specified words in each file. The user must specify one or more words to be counted.
+- **Occurrence counter** counts the number of specified words in each document. The user must specify one or more words to be counted.
 
-- The following complexity measures estimate the linguistic complexity of each file:
+- The following complexity measures estimate the linguistic complexity of each document:
 
-    - **Shannon Entropy** estimates the complexity of the text in each file based on the method used in [this paper](https://papers.ssrn.com/sol3/papers.cfm?abstract_id=2307352). Higher numbers suggest the content of the text is more difficult to predict and thus more uncertain.
-    - **Conditional counter** counts the number of conditionals (words like "if," "but," "except, " etc.) as an estimate of linguistic complexity.
-    - **Sentence length** measures the average length of sentences within each file.
+    - **Shannon Entropy** estimates the complexity of the text in each document based on the method used in [this paper](https://papers.ssrn.com/sol3/papers.cfm?abstract_id=2307352). Higher numbers suggest the content of the text is more difficult to predict, and thus more uncertain and complex.
+    - **Conditional counter** counts the number of conditionals in each document (words like "if", "but", "except", etc.) as an estimate of complexity.
+    - **Sentence length** measures the average length of sentences within each document. Longer average sentence length suggests greater complexity.
 
-- **Sentiment analysis** estimates the polarity and subjectivity of the language in each file. Polarity is measured from -1 to 1, with -1 respresenting very negative language and 1 representing very positive. Subjectivity is measured from 0 to 1, with 0 representing very objective text and 1 representing very subjective.
+- **Sentiment analysis** estimates the polarity and subjectivity of the language in each document. Polarity is measured from -1 to 1, with -1 respresenting very negative language and 1 representing very positive language. Subjectivity is measured from 0 to 1, with 0 representing very objective text and 1 representing very subjective text.
 
 Each of these functions can be used on the command line. For example, to estimate the sentiment of a corpus, the following command can be used:
 

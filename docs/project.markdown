@@ -4,9 +4,9 @@
 
 A QuantGov project brings together corpora and projects to create a new dataset. The root directory for a project should contain:
 
--   A subdirectory named `data` that holds data generated in the creation of the dataset
--   A subdirectory named `scripts` containing any scripts needed to clean, combine, or polish metadata and analyses from the corpora and estimators
--   A `snakefile` to manage the workflow of the project
+-   A subdirectory named `data` that holds data generated in the creation of the dataset.
+-   A subdirectory named `scripts` containing any scripts needed to clean, combine, or polish metadata and analyses from the corpora and estimators.
+-   A `snakefile` to manage the workflow of the project.
 
 ## Writing a New Project
 
@@ -18,5 +18,5 @@ Official QuantGov projects are branches of the project repository, available on 
 
 ## Submitting a New Official Project
 
-Complete projects may be considered to be added as official QuantGov project. If accepted, a new branch will be created to which a pull request can be made. Additions to the official projects are at the sole discretion of the QuantGov team.
+Complete projects may be considered to be added as official QuantGov project. If accepted, a new branch will be created to which a pull request can be made. Additions to the official projects are at the sole discretion of the QuantGov team. Please email info@quantgov.org with any questions about adding a project to the official QuantGov project.
 

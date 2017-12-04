@@ -14,16 +14,16 @@ This documentation describes the [QuantGov architecture](http://docs.quantgov.or
 
 All code for official QuantGov projects is hosted on the [QuantGov GitHub page](https://github.com/QuantGov). QuantGov currently maintains four repositories:
 
--   [QuantGov/corpus](https://github.com/QuantGov/corpus), which holds official QuantGov corpora
--   [QuantGov/estimator](https://github.com/QuantGov/estimator), which holds official QuantGov estimators
--   [QuantGov/project](https://github.com/QuantGov/project), which holds official QuantGov projects
--   [QuantGov/documentation](https://github.com/QuantGov/documentation), which holds this documentation
+-   [QuantGov/corpus](https://github.com/QuantGov/corpus), which holds official QuantGov corpora.
+-   [QuantGov/estimator](https://github.com/QuantGov/estimator), which holds official QuantGov estimators.
+-   [QuantGov/project](https://github.com/QuantGov/project), which holds official QuantGov projects.
+-   [QuantGov/documentation](https://github.com/QuantGov/documentation), which holds this documentation.
 
 ## QuantGov Data
 
 Published Datasets using the QuantGov framework include:
 
--   [RegData](http://regdata.org/data) : A dataset quantifying federal regulation in the United States from 1975-2014, and classifying regulations using the North American Industry Classification System
+-   [RegData](http://regdata.org/data) : A dataset quantifying federal regulation in the United States from 1975-2014, and classifying regulations using the North American Industry Classification System.
 
 If you have a published dataset that uses QuantGov that you would like us to add to this list, please contact us [here](mailto:osherouse@mercatus.gmu.edu).
 

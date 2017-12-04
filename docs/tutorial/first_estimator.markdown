@@ -8,7 +8,7 @@ using the documents in a QuantGov corpus, called the *trainer corpus*.
 Our first estimator will predict whether or not a document is likely to have
 been published in the "World" section of the *Federal Register*, as opposed to
 a different section. We'll train this model using documents from the 2015
-*Federal Register* by following steps:
+*Federal Register* by following these steps:
 
 1.  Build the trainer corpus
 2.  Specify the labels

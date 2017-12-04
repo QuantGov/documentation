@@ -17,13 +17,13 @@ Each corpus should contain a python module named `driver.py`. This driver serves
 
 The names of the components of the index are stored in a module-level constant named `INDEX`, and are always a tuple, even when the index only has one component. Thus, for the CFR, `INDEX = ('year', 'title', 'part')`, and for a simple corpus using a document numbering system, `INDEX = ('id',)`.
 
-The second important feature of the driver is that it provides a function named `stream` The `stream` function should return an [iterable](https://docs.python.org/3/glossary.html#term-iterable)—in most cases, a [generator](https://docs.python.org/3/glossary.html#term-generator)—that emits the index value (or values) and text of each document in the corpus. Thus, the first item emitted by `driver.stream()` in the CFR corpus might be `(1975, 1, 1), "Text of the 1975 CFR, Title 1, Part 1"`.
+The second important feature of the driver is that it provides a function named `stream`. The `stream` function should return an [iterable](https://docs.python.org/3/glossary.html#term-iterable)—in most cases, a [generator](https://docs.python.org/3/glossary.html#term-generator)—that emits the index value (or values) and text of each document in the corpus. Thus, the first item emitted by `driver.stream()` in the CFR corpus might be `(1975, 1, 1), "Text of the 1975 CFR, Title 1, Part 1"`.
 
-Drivers may implement other features (such as only streaming a subset of documents based on the index), but these will be non-standard, and estimators should not expect them as a matter of course.
+Drivers may implement other features (such as only streaming a subset of documents based on the index), but these types of features are non-standard, and estimators should not expect them as a matter of course.
 
 ## Corpus Metadata
 
-Relevant metadata will vary from corpus to corpus. Metadata can be generated from one of two sources: from the text itself, or from additional external information. In the first case, the best practice is to write scripts that understand the corpus driver interface, and can therefore be used in other corpora. An example of this approach can be seen in the `get_wordcount.py` and `get_restriction_count.py` in the QuantGov generic corpus and most corpora based on it. In the second case, the external resources should be stored in a [databank](http://docs.quantgov.org/databank) kept separate from the corpus itself, which the corpus scripts treat as read-only. An example of this approach is the agency attribution in the CFR corpus, which relies on a set of documents separate from the main CFR text.
+Relevant metadata will vary from corpus to corpus. Metadata can be generated from one of two sources: from the text itself, or from additional external information. In the first case, the best practice is to write scripts that understand the corpus driver interface, and can therefore be used in other corpora. An example of this approach can be seen in the `get_wordcount.py` and `get_restriction_count.py` in the QuantGov generic corpus. In the second case, the external resources should be stored in a [databank](http://docs.quantgov.org/databank) kept separate from the corpus itself, which the corpus scripts treat as read-only. An example of this approach is the agency attribution in the CFR corpus, which relies on a set of documents separate from the main CFR text.
 
 ## Writing a new Corpus
 
@@ -41,5 +41,5 @@ Official QuantGov corpora are branches of the corpus repository, available on Gi
 
 ## Submitting a New Official Corpus
 
-Complete corpora may be considered to be added as official QuantGov copora. If accepted, a new branch will be created to which a pull request can be made. Additions to the official corpora are at the sole discretion of the QuantGov team.
+Complete corpora may be considered to be added as official QuantGov copora. If accepted, a new branch will be created to which a pull request can be made. Additions to the official corpora are at the sole discretion of the QuantGov team. Please email info@quantgov.org with any questions regarding adding a corpus to the official QuantGov copora.
 

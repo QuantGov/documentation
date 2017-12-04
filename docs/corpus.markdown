@@ -1,4 +1,10 @@
 # The QuantGov Corpus
+
+We can create our first corpus with the following command:
+
+``` {.bash}
+quantgov start corpus CORPUS_NAME
+```
  
 ## Basic Structure
 
@@ -23,15 +29,27 @@ Drivers may implement other features (such as only streaming a subset of documen
 
 ### Builtin Drivers
 
-The QuantGov library includes four builtin corpus drivers:
+The QuantGov library includes three builtin corpus drivers:
 
-- **Flat file corpus driver** is a superclass for drivers that keep each document in the corpus in separate files.
+- **Recursive directory corpus driver** serves a corpus with files organized in a recursive directory. The index labels are defined by the user in the driver and the index values are the names of the subdirectories. Most official QuantGov corpora use this framework. Below is the code to produce the recursive directory driver for the RegData corpus.
 
-- **Recursive directory corpus driver** serves a corpus with files organized in a recursive directory. The index labels are defined by the user in the driver and the index values are the names of the subdirectories. Most official QuantGov corpora use this framework.
+```
+driver = quantgov.corpora.RecursiveDirectoryCorpusDriver(
+    directory=Path(__file__).parent.joinpath('data', 'clean'),
+    index_labels=('year', 'title', 'part')
+)
+```
 
-- **Name pattern corpus driver** serves a corpus with all files in a single directory and filenames defined by a regular expression. The index labels are the group names contained in the regular expression in the order that they appear.
+- **Name pattern corpus driver** serves a corpus with all files in a single directory and filenames defined by a regular expression. The index labels are the group names contained in the regular expression in the order that they appear. Below is an example of the code that could be used to produce a name pattern driver for the RegData corpus.
 
-- **Index driver** serves a corpus using an index csv where the final column is the path to the file and the other columns form the index. The index labels are taken from the csv header.
+```
+driver = quantgov.corpora.NamePatternCorpusDriver(
+    directory=Path(__file__).parent.joinpath('data', 'clean'),
+    pattern=r'(?P<year>\d{4})-(?P<title>\d{1,})-(?P<part>\d{1,})'
+)
+```
+
+- **Index driver** serves a corpus using an index csv where the final column is the path to the file and the other columns form the index. The index labels are taken from the csv header and the index values are taken from the csv contents.
 
 ## Corpus Metadata
 
@@ -55,7 +73,7 @@ The QuantGov library includes several builtin text-analysis functions for use on
 
 Each of these functions can be used on the command line. For example, to estimate the sentiment of a corpus, the following command can be used:
 
-```
+``` {.bash}
 quantgov corpus sentiment_analysis CORPUS_PATH
 ```
 

@@ -45,7 +45,7 @@ driver = quantgov.corpora.RecursiveDirectoryCorpusDriver(
 )
 ```
 
-Save that file, and the corpus is ready to use in training. NB: In this context
+Save that file, and the corpus is ready to use in training. Note: In this context
 we're using this corpus to train a model, but it's a fully-fledged QuantGov
 corpus, and can be analyzed in its own right or integrated into other QuantGov
 projects.
@@ -66,6 +66,8 @@ The estimator has the following structure:
     estimator-fr-sections/
         .gitignore
         config.yaml
+        README.md
+        requirements
         Snakefile
         scripts/
             vectorize_trainers.py
@@ -98,8 +100,8 @@ default setup, however, is a sufficient starting place for this tutorial.
 To train a supervised model, we need to create a set of labels that tell the
 model what we're looking for. In our case, we want to train the model to
 identify whether or not a document is more likely to have been published in the
-"World" section of the *Federal Register* than another section. Since there are
-only two possible outcomes, our problem is a case of *binary classification*
+"World" section of the *Federal Register* than in any other section. Since there 
+are only two possible outcomes, our problem is a case of *binary classification*
 and the labels we need to create should have `True` or `False` values.
 
 Label creation is handled in the `create_labels.py` script. By default, this

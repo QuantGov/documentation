@@ -5,7 +5,7 @@
 An estimator is the file structure and scripts that retain and manage a classification, regression, or unsupervised learning task. The root directory of an estimator should contain the following:
 
 -   A subdirectory named `data` containing the results from the evaluation and training of the estimator, alongside any intermediate data.
--   A subdirectory named `scripts` containing the scripts needed to evaluate candidate models and train the selected candidate using a trainer corpus and analyze a target corpus using the trained model
+-   A subdirectory named `scripts` containing the scripts needed to evaluate candidate models and train the selected candidate using a trainer corpus and analyze a target corpus using the trained model.
 -   A `snakefile` to manage the workflow of the estimator. The snakefile should implement the estimator interface (see below).
 
 ## The Snakefile Interface
@@ -18,7 +18,7 @@ The `snakefile` for an estimator should use the following variables, defined in 
 
 ## Writing a new Estimator
 
-The easiest way to write a new estimator is to fork the most similar official estimator (see below) and modify it for the relevant task. Generally, the tasks for writing an estimator are:
+The easiest way to write a new estimator is to fork the most similar official estimator (see below) and modify it for the relevant task. Generally, the tasks for writing an estimator are the following:
 
 -   Extract features from the training document.
 -   Test one or more algorithms for the estimation task, possibly tuning a set of parameters for each algorithm.

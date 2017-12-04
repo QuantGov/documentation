@@ -9,9 +9,9 @@ familiar with the command line, you should work through
 familiarize yourself with how it works before completing the rest of this
 tutorial. In particular, before moving on you should feel comfortable with:
 
--   Navigating to different folders
--   Moving, copying and deleting files
--   Running commands with arguments
+-   Navigating to different folders.
+-   Moving, copying and deleting files.
+-   Running commands with arguments.
 
 ## A Text Editor
 
@@ -21,8 +21,8 @@ you do not already have a more powerful editor that you like, good
 cross-platform options include:
 
 -   [SublimeText](https://www.sublimetext.com/): A sophisticated text editor
-    for code, markup, and prose
--   [Atom](https://atom.io/): A hackable text editor for the 21st Century
+    for code, markup, and prose.
+-   [Atom](https://atom.io/): A hackable text editor for the 21st Century.
 
 ## Installing Python
 
@@ -30,7 +30,7 @@ QuantGov makes extensive use of the Python programming language and Python
 libraries (although it can be extended to use other languages as well). If you
 do not have Python installed already, the easiest way is to use the Anaconda
 Python distribution. Go to <https://conda.io/miniconda.html> and use the Python
-3 (**not** Python 2), installer appropriate for your system (most users will
+3 (**not** Python 2) installer appropriate for your system (most users will
 want the 64-bit version):
 
 -   For Windows: Double-click the installer and follow the prompts
@@ -43,7 +43,7 @@ want the 64-bit version):
 
 The QuantGov framework and all dependencies can be installed with `pip`, a
 package manager that is included with recent versions of Python. To install
-QuantGov, run the following command:
+QuantGov, run the following command on the command line:
 
 ``` {.bash}
 pip install -U quantgov

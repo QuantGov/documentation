@@ -227,8 +227,7 @@ trainer_corpus: ../corpus-fr-2015
 ```
 
 Otherwise, use the appropriate full or relative path to the 2015 Federal
-Register corpus for that value. Note: Make sure that you use `/` and not
-`\` when defining your path.
+Register corpus for that value.
 
 ## Evaluating the Candidate Models
 
@@ -239,6 +238,7 @@ defined in the default Snakefile by running the command:
 ```bash
 snakemake -l
 ```
+Note: This is the letter `l`, not the number `1`.
 
 The `default` rule is actually simply a mapping to the `evaluate` rule, because
 we want to give ourselves the option of selecting a model other than the one

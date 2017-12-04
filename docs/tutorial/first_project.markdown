@@ -23,6 +23,7 @@ That command will create a new QuantGov estimator in the
     estimator-fr-sections/
         .gitignore
         config.yaml
+        README.md
         Snakefile
         data/
             .gitignore

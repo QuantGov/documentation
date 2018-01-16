@@ -27,9 +27,9 @@ One file that each corpus should generate is a csv file in the `data` directory 
 
 The driver serves two important functions. First, it specifies how the corpus should be indexed. An index is one or more values that, taken together, uniquely identify each document in the corpus. An index can be as simple as an id number, or it can be more descriptive. For the CFR corpus, each document, representing a single subdivision called a part, is represented by three pieces of metadata: the year of the CFR edition that contains it, the title that contains it, and the part number.
 
-The names of the components of the index are stored in a module-level constant named `INDEX`, and are always a tuple, even when the index only has one component. Thus, for the CFR, `INDEX = ('year', 'title', 'part')`, and for a simple corpus using a document numbering system, `INDEX = ('id',)`.
+The components of the index are named in an argument of the driver's function called `index_labels`. They may be passed to the driver constructor by the user, identified by a regex pattern (name pattern corpus driver), or identified by the column names of `index.csv` (index driver). (See below for more details on the different kinds of builtin drivers.) For example, the CFR driver is passed the argument `index_labels = ['year', 'title', 'part']`. A corpus using a simple document numbering system may use `index_label = 'id'`.
 
-The second important feature of the driver is that it provides a function named `stream.` The `stream` function should return an iterable—in most cases, a generator—that emits the index value (or values) and text of each document in the corpus. Thus, the first item emitted by `driver.stream()` in the CFR corpus might be `(1975, 1, 1), "Text of the 1975 CFR, Title 1, Part 1".`
+The second important feature of the driver is that it provides a function named `stream.` The `stream` function should return an iterable (in most cases, a generator) that emits the index value (or values) and text of each document in the corpus. Thus, the first item emitted by `driver.stream()` in the CFR corpus might be `(1975, 1, 1), "Text of the 1975 CFR, Title 1, Part 1".`
 
 Drivers may implement other features (such as only streaming a subset of documents based on the index), but these will be non-standard, and estimators should not expect them as a matter of course.
 
@@ -37,7 +37,7 @@ Drivers may implement other features (such as only streaming a subset of documen
 
 The QuantGov library includes three builtin corpus drivers:
 
-- **Recursive directory corpus driver** serves a corpus with files organized in a recursive directory. The index labels are defined by the user in the driver and the index values are the names of the subdirectories. Most official QuantGov corpora use this framework. Below is the code to produce the recursive directory driver for the RegData corpus.
+- **Recursive directory corpus driver** serves a corpus with files organized in a directory. The index labels are defined by the user in the driver and the index values are the names of the subdirectories. Most official QuantGov corpora use this framework. Below is the code to produce the recursive directory driver for the RegData corpus.
 
 ```
 driver = quantgov.corpora.RecursiveDirectoryCorpusDriver(
@@ -51,7 +51,7 @@ driver = quantgov.corpora.RecursiveDirectoryCorpusDriver(
 ```
 driver = quantgov.corpora.NamePatternCorpusDriver(
     directory=Path(__file__).parent.joinpath('data', 'clean'),
-    pattern=r'(?P<year>\d{4})-(?P<title>\d{1,})-(?P<part>\d{1,})'
+    pattern=r'(?P<year>\d{4})-(?P<title>\d+)-(?P<part>\d+)'
 )
 ```
 
@@ -66,11 +66,15 @@ driver = quantgov.corpora.IndexDriver(
 
 ## Corpus Metadata
 
-Relevant metadata will vary from corpus to corpus. Metadata can be generated from one of two sources: from the text itself or from additional external information. In the first case, the best practice is to write scripts that understand the corpus driver interface, and can therefore be used in other corpora. An example of this approach can be seen in the `get_wordcount.py` and `get_restriction_count.py` in the QuantGov generic corpus. In the second case, the external resources should be stored in a read-only databank separate from the corpus itself. An example of this approach is the agency attribution in the CFR corpus, which relies on a set of documents separate from the main CFR text.
+Relevant metadata will vary from corpus to corpus. Metadata can be generated from one of two sources: from the text itself or from additional external information. In the first case, the best practice is to write scripts that understand the corpus driver interface, and can therefore be used in other corpora. In the second case, the external resources should be stored in a read-only databank separate from the corpus itself. An example of this approach is the agency attribution in the CFR corpus, which relies on a set of documents separate from the main CFR text.
 
 ## Builtin Functions
 
-The QuantGov library includes several builtin text-analysis functions for use on the documents in the corpus:
+The QuantGov library includes several builtin text-analysis functions for use on the documents in the corpus. Each of these functions can be used on the command line with the following command:
+
+``` {.bash}
+quantgov corpus FUNCTION_NAME CORPUS_PATH
+```
 
 - **Word counter** counts the number of words in each document. A "word" can be user-defined by a regular expression. The default regular expression is `r'\b\w+\b'`.
 
@@ -83,12 +87,6 @@ The QuantGov library includes several builtin text-analysis functions for use on
     - **Sentence length** measures the average length of sentences within each document. Longer average sentence length suggests greater complexity.
 
 - **Sentiment analysis** estimates the polarity and subjectivity of the language in each document. Polarity is measured from -1 to 1, with -1 respresenting very negative language and 1 representing very positive language. Subjectivity is measured from 0 to 1, with 0 representing very objective text and 1 representing very subjective text.
-
-Each of these functions can be used on the command line. For example, to estimate the sentiment of a corpus, the following command can be used:
-
-``` {.bash}
-quantgov corpus sentiment_analysis CORPUS_PATH
-```
 
 ## Writing a New Corpus
 

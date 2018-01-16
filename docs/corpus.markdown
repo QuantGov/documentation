@@ -66,15 +66,17 @@ driver = quantgov.corpora.IndexDriver(
 
 ## Corpus Metadata
 
-Relevant metadata will vary from corpus to corpus. Metadata can be generated from one of two sources: from the text itself or from additional external information. In the first case, the best practice is to write scripts that understand the corpus driver interface, and can therefore be used in other corpora. In the second case, the external resources should be stored in a read-only databank separate from the corpus itself. An example of this approach is the agency attribution in the CFR corpus, which relies on a set of documents separate from the main CFR text.
+Relevant metadata will vary from corpus to corpus. Metadata can be generated from one of two sources: from the text itself or from additional external information. In the first case, the best practice is to write scripts that understand the corpus driver interface, and can therefore be used in other corpora. The builtin functions (see below) are all examples of this. In the second case, the external resources should be stored in a read-only databank separate from the corpus itself. An example of this approach is the agency attribution in the CFR corpus, which relies on a set of documents separate from the main CFR text.
 
 ## Builtin Functions
 
-The QuantGov library includes several builtin text-analysis functions for use on the documents in the corpus. Each of these functions can be used on the command line with the following command:
+The QuantGov library includes several builtin text-analysis functions for use on the documents in the corpus. Each of these functions can be used on the command line. For example, to count the number of words in each document of a corpus, the following command can be used:
 
 ``` {.bash}
-quantgov corpus FUNCTION_NAME CORPUS_PATH
+quantgov corpus count_words CORPUS_PATH
 ```
+
+The following are a current list of the builtin functions within the QuantGov library:
 
 - **Word counter** counts the number of words in each document. A "word" can be user-defined by a regular expression. The default regular expression is `r'\b\w+\b'`.
 

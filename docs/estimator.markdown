@@ -1,3 +1,7 @@
+---
+title: estimator
+---
+
 # The QuantGov Estimator
 
 ## Basic Structure
@@ -32,4 +36,3 @@ Official QuantGov estimators are branches of the estimator repository, available
 ## Submitting a New Official Estimator
 
 Complete estimators may be considered to be added as official QuantGov estimator. If accepted, a new branch will be created to which a pull request can be made. Additions to the official estimators are at the sole discretion of the QuantGov team. Please email info@quantgov.org with any questions about adding an estimator to the official QuantGov estimator.
-

@@ -1,3 +1,7 @@
+---
+title: Corpus
+---
+
 # The QuantGov Corpus
 
 ## Basic Structure
@@ -17,7 +21,7 @@ Each corpus should contain a python module named `driver.py`. This driver serves
 
 The names of the components of the index are stored in a module-level constant named `INDEX`, and are always a tuple, even when the index only has one component. Thus, for the CFR, `INDEX = ('year', 'title', 'part')`, and for a simple corpus using a document numbering system, `INDEX = ('id',)`.
 
-The second important feature of the driver is that it provides a function named `stream`. The `stream` function should return an [iterable](https://docs.python.org/3/glossary.html#term-iterable)—in most cases, a [generator](https://docs.python.org/3/glossary.html#term-generator)—that emits the index value (or values) and text of each document in the corpus. Thus, the first item emitted by `driver.stream()` in the CFR corpus might be `(1975, 1, 1), "Text of the 1975 CFR, Title 1, Part 1"`.
+The second important feature of the driver is that it provides a function named `stream`. The `stream` function should return an [iterable](https://docs.python.org/3/glossary.html#term-iterable)---in most cases, a [generator](https://docs.python.org/3/glossary.html#term-generator)---that emits the index value (or values) and text of each document in the corpus. Thus, the first item emitted by `driver.stream()` in the CFR corpus might be `(1975, 1, 1), "Text of the 1975 CFR, Title 1, Part 1"`.
 
 Drivers may implement other features (such as only streaming a subset of documents based on the index), but these types of features are non-standard, and estimators should not expect them as a matter of course.
 
@@ -42,4 +46,3 @@ Official QuantGov corpora are branches of the corpus repository, available on Gi
 ## Submitting a New Official Corpus
 
 Complete corpora may be considered to be added as official QuantGov copora. If accepted, a new branch will be created to which a pull request can be made. Additions to the official corpora are at the sole discretion of the QuantGov team. Please email info@quantgov.org with any questions about adding a corpus to the official QuantGov copora.
-

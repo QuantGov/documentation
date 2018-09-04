@@ -1,3 +1,7 @@
+---
+title: Home
+---
+
 # QuantGov
 
 *A Policy Analytics Platform*
@@ -31,6 +35,4 @@ If you have a published dataset that uses QuantGov that you would like us to add
 
 If you use QuantGov, please cite us:
 
-> McLaughlin, Patrick A. and Oliver Sherouse. *QuantGov---A Policy Analytics Platform*. 2016-, http://docs.quantgov.org/quantgov_working_paper.pdf
-
-
+> McLaughlin, Patrick A. and Oliver Sherouse. *QuantGov---A Policy Analytics Platform*. 2016-, http://docs.quantgov.org/quantgov\_working\_paper.pdf

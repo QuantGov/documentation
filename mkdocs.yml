@@ -1,17 +1,17 @@
 site_name: QuantGov Documentation
 theme: readthedocs
 google_analytics: ['UA-86588008-2', 'auto']
-pages:
-    - Home: 'index.markdown'
-    - Tutorial:
-        - Introduction: 'tutorial/introduction.markdown'
-        - Prerequisites: 'tutorial/prerequisites.markdown'
-        - Building Your First Corpus: 'tutorial/first_corpus.markdown'
-        - Analyzing a Corpus: 'tutorial/corpus_analysis.markdown'
-        - Training Your First Estimator: 'tutorial/first_estimator.markdown'
-        - Bringing it All Together in Your First Project: 'tutorial/first_project.markdown'
-    - Architecture: 'architecture.markdown'
-    - Corpus: 'corpus.markdown'
-    - Estimator: 'estimator.markdown'
-    - Project: 'project.markdown'
-    - Databank: 'databank.markdown'
+nav:
+  - 'index.markdown'
+  - Tutorial:
+    - Introduction: 'tutorial/introduction.markdown'
+    - Prerequisites: 'tutorial/prerequisites.markdown'
+    - Building Your First Corpus: 'tutorial/first_corpus.markdown'
+    - Analyzing a Corpus: 'tutorial/corpus_analysis.markdown'
+    - Training Your First Estimator: 'tutorial/first_estimator.markdown'
+    - Bringing it All Together in Your First Project: 'tutorial/first_project.markdown'
+  - Architecture: 'architecture.markdown'
+  - Corpus: 'corpus.markdown'
+  - Estimator: 'estimator.markdown'
+  - Project: 'project.markdown'
+  - Databank: 'databank.markdown'

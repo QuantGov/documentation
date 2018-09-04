@@ -1,3 +1,7 @@
+---
+title: architecture
+---
+
 # The QuantGov Architecture
 
 ## Goals

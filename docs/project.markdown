@@ -1,3 +1,7 @@
+---
+title: project
+---
+
 # The QuantGov Project
 
 ## Basic Structure
@@ -19,4 +23,3 @@ Official QuantGov projects are branches of the project repository, available on 
 ## Submitting a New Official Project
 
 Complete projects may be considered to be added as official QuantGov project. If accepted, a new branch will be created to which a pull request can be made. Additions to the official projects are at the sole discretion of the QuantGov team. Please email info@quantgov.org with any questions about adding a project to the official QuantGov project.
-

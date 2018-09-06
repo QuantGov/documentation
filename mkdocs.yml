@@ -1,17 +1,19 @@
 site_name: QuantGov Documentation
+site_url: http://docs.quantgov.org
 theme: readthedocs
-google_analytics: ['UA-86588008-2', 'auto']
+google_analytics: ["UA-86588008-2", "auto"]
+repo_url: https://github.com/quantgov/documentation
 nav:
-  - 'index.markdown'
+  - "index.markdown"
   - Tutorial:
-    - Introduction: 'tutorial/introduction.markdown'
-    - Prerequisites: 'tutorial/prerequisites.markdown'
-    - Building Your First Corpus: 'tutorial/first_corpus.markdown'
-    - Analyzing a Corpus: 'tutorial/corpus_analysis.markdown'
-    - Training Your First Estimator: 'tutorial/first_estimator.markdown'
-    - Bringing it All Together in Your First Project: 'tutorial/first_project.markdown'
-  - Architecture: 'architecture.markdown'
-  - Corpus: 'corpus.markdown'
-  - Estimator: 'estimator.markdown'
-  - Project: 'project.markdown'
-  - Databank: 'databank.markdown'
+      - "tutorial/introduction.markdown"
+      - "tutorial/prerequisites.markdown"
+      - "tutorial/first_corpus.markdown"
+      - "tutorial/corpus_analysis.markdown"
+      - "tutorial/first_estimator.markdown"
+      - "tutorial/first_project.markdown"
+  - "corpus.markdown"
+  - "nlp.markdown"
+  - "ml.markdown"
+markdown_extensions:
+  - smarty

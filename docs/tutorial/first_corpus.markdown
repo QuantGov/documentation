@@ -16,9 +16,9 @@ quantgov start corpus corpus-fr-2016
 
 That command will create a starter corpus in a new folder called
 `corpus-fr-2016`. Inside that folder you will see a file called `Snakefile`, a
-file called `driver.py`, and a folder named `data`. Also, both a `README` 
-and a `requirements` file were added to offer additional information. 
-The file structure should look like this:
+file called `driver.py`, and a folder named `data`. Also, both a `README` and a
+`requirements` file were added to offer additional information. The file
+structure should look like this:
 
     corpus-fr-2016/
         .gitignore
@@ -36,19 +36,19 @@ can be safely ignored.
 
 The documents we will be using are proposed rules published in the *Federal
 Register* in 2016. You can download these documents
-[here](https://s3.amazonaws.com/quantgov-datasets/workshop/2016_frdocs.zip). The
-*Federal Register* is divided into six different sections by topic, and the
+[here](https://s3.amazonaws.com/quantgov-datasets/workshop/2016_frdocs.zip).
+The *Federal Register* is divided into six different sections by topic, and the
 dataset contains the first 100 rules published in each section that were not
 corrections or withdrawals. Inside the zip folder, the documents are organized
 by folders corresponding to the sections. The file names are the order in which
 the rules for that section were obtained, and the files contain the text of the
-rule proposal. For example, the file at `money/0032.txt` is the 32nd proposed 
+rule proposal. For example, the file at `money/0032.txt` is the 32nd proposed
 rule that appeared in the *Federal Register*'s section called "Money" in 2016.
 
 To turn this set of documents into a QuantGov corpus, we need to do two things:
-add them to the file structure, and tell `driver.py` how to use them. To do
-the first step, create a new folder in the corpus's `data` folder named
-`clean`. Then unzip the downloaded file and copy the section folders into the
+add them to the file structure, and tell `driver.py` how to use them. To do the
+first step, create a new folder in the corpus's `data` folder named `clean`.
+Then unzip the downloaded file and copy the section folders into the
 `data/clean` folder. The file structure should now look like this:
 
     corpus-fr-2016/
@@ -109,10 +109,10 @@ driver = quantgov.corpora.RecursiveDirectoryCorpusDriver(
 )
 ```
 
-The driver is almost set up with exactly what we need. The one change we need to make
-is to modify the `index_label` argument being passed in: we need it to reflect the two
-levels of our index---the *Federal Register* section and document number. Edit
-the driver file so that it looks like this:
+The driver is almost set up with exactly what we need. The one change we need
+to make is to modify the `index_label` argument being passed in: we need it to
+reflect the two levels of our index---the *Federal Register* section and
+document number. Edit the driver file so that it looks like this:
 
 ``` {.python}
 import quantgov
@@ -126,4 +126,3 @@ driver = quantgov.corpora.RecursiveDirectoryCorpusDriver(
 ```
 
 Save the file. Congratulations! The corpus is now ready for analysis.
-

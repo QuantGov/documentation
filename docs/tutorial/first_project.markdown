@@ -1,4 +1,4 @@
-# Bringing it All Together in Your First Project
+# Bringing it All Together to Create a Dataset
 
 A [QuantGov Project](../project.markdown) allows us to bring corpora and
 estimators together to create a final dataset. In this tutorial, we are going
@@ -175,4 +175,3 @@ of `True` and `False` values.
 Sorting by the probability shows that those documents about which the estimator
 is particularly certain are generally correct, while the incorrectly classified
 documents hover near the 50 percent decision threshold.
-

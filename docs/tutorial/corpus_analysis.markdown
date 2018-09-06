@@ -78,4 +78,3 @@ The Metadata file is an important part of the QuantGov architecture, and is an
 excellent place to include both information directly derived from the text (as
 seen here) and any other information that describes the document, such as
 authors.
-

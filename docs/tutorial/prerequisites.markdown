@@ -1,4 +1,4 @@
-# Pre-Requisites
+# Prerequisites
 
 ## The Command Line
 
@@ -48,4 +48,3 @@ QuantGov, run the following command on the command line:
 ``` {.bash}
 pip install -U quantgov
 ```
-

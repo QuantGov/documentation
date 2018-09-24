@@ -1,60 +1,53 @@
 ---
-title: Estimator
+title: Machine Learning
 ---
 
-# The QuantGov Estimator
+# Machine Learning with QuantGov
 
-## Basic Structure
+QuantGov provides a framework for training machine learning estimators using a
+corpus, packaging those estimators, and using those models to make predictions
+about other corpora.
 
-An estimator is the file structure and scripts that retain and manage a
-classification, regression, or unsupervised learning task. The root directory
-of an estimator should contain the following:
+QuantGov builds on the [scikit-learn](http://scikit-learn.org/stable/) library,
+and users training new models should familiarize themselves with the models
+they employ.
 
--   A subdirectory named `data` containing the results from the evaluation and
-    training of the estimator, alongside any intermediate data.
--   A subdirectory named `scripts` containing the scripts needed to evaluate
-    candidate models and train the selected candidate using a trainer corpus
-    and analyze a target corpus using the trained model.
--   A `snakefile` to manage the workflow of the estimator. The snakefile should
-    implement the estimator interface (see below).
+## Training a QuantGov Estimator
 
-## The Snakefile Interface
+### Initializing the Estimator
 
-The `snakefile` for an estimator should use the following variables, defined in
-the `config.yaml` file (located in the root directory alongside `snakefile`):
+To start a new quantgov estimator, use the following command
+`quantgov start estimator myname` where `myname` is the name you want to give
+to the estimator. This will copy the [estimator
+skeleton](https://github.com/quantgov/estimator) to the folder with that name.
 
--   `trainer_corpus` should be a path to the corpus needed to evaluate and
-    train the estimator.
--   `folds` should be the number of times to fold the training data for
-    testing.
--   `scoring` should be the method for testing the trained estimator.
+### Configuring the Training Framework
 
-## Writing a new Estimator
+The estimator skeleton contains a `config.yaml` file that is used to configure
+the training framework. It contains the following options:
 
-The easiest way to write a new estimator is to fork the most similar official
-estimator (see below) and modify it for the relevant task. Generally, the tasks
-for writing an estimator are the following:
+-   **folds**: The number of folds to use for cross-validation
+-   **scoring**: the metric for evaluating candidate models; see
+    [here](http://scikit-learn.org/stable/modules/model_evaluation.html#common-cases-predefined-values)
+    for available options.
+-   **trainer\_corpus**: the path to the corpus used to train the estimator.
 
--   Extract features from the training document.
--   Test one or more algorithms for the estimation task, possibly tuning a set
-    of parameters for each algorithm.
--   Select an algorithm from the candidates tested and training it using the
-    full trainer corpus.
--   Constructing a pipeline for feature extraction and analysis of other
-    corpora, using the [corpus driver
-    interface](corpus.markdown#the-corpus-driver-interface).
+### Customize the Vectorizer
 
-## Official QuantGov Estimators
+QuantGov estimators currently expect a `joblib`-pickled `scikit-learn`
+vectorizer, such as a `CountVectorizer`. Most users will simply want to
+customize the `CountVectorizer` defined in the `scripts/create_vectorizer.py`
+script in the estimator skeleton.
 
-Official QuantGov estimators are branches of the estimator repository,
-available on GitHub at <https://github.com/QuantGov/estimator>. The current
-official estimators are listed on the QuantGov Platform page at
-<http://www.quantgov.org/platform>.
+Advanced users may implement their own vectorizers subclassing the
+`sklearn.base.BaseEstimator` and the `sklearn.base.TransformerMixin` classes;
+all vectorizers should take an iterable of text objects to their `fit` and
+`fit_transform` methods.
 
-## Submitting a New Official Estimator
+In evaluating models, the vectorization step takes place before segmentation
+for cross-valdiation; this means that users should take care not to let
+information correlated with the variable of interest be used here. Instead,
+include a transformer step in the candidate model pipeline, which is used after
+the test-train split.
 
-Complete estimators may be considered to be added as official QuantGov
-estimator. If accepted, a new branch will be created to which a pull request
-can be made. Additions to the official estimators are at the sole discretion of
-the QuantGov team. Please email info\@quantgov.org with any questions about
-adding an estimator to the official QuantGov estimator.
+###

@@ -24,6 +24,11 @@ name.
 
 ### Customize the Vectorizer and Vectorize Trainers
 
+In order to use mathematical statistical techniques on text documents,
+those documents need to be converted to set of numbers, or vector. This
+process is called *vectorization*, and the Python objects used to create
+carry this out are called *vectorizers*.
+
 QuantGov estimators currently expect a `joblib`-pickled `scikit-learn`
 vectorizer, such as a `CountVectorizer`. Most users will simply want to
 customize the `CountVectorizer` defined in the

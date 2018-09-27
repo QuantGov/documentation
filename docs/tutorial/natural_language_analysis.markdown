@@ -1,6 +1,4 @@
-# Analyzing the Corpus
-
-## Analysis with the QuantGov Library
+# Natural Language Analysis
 
 Now that you have a working QuantGov corpus, you can use the QuantGov
 system to analyze it. While it is easy to write scripts to analyze a

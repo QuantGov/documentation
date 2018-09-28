@@ -22,9 +22,13 @@ these methods and allow researchers to build off of one another's work
 without constant reinvention of the wheel.
 
 This documentation describes the QuantGov framework, which consists of
-three parts: - The [corpus](corpus.markdown), which defines a collection
-of documents, - A set of [natural language](nlp.markdown) analysis
-functions that can be applied to the documents in a corpus, and - A
+three parts:
+
+- The [corpus](corpus.markdown), which defines a collection
+of documents,
+- A set of [natural language](nlp.markdown) analysis
+functions that can be applied to the documents in a corpus, and
+- A
 system for training, packaging, and using [machine
 learning](ml.markdown) estimators to make predictions about the
 documents in a corpus.

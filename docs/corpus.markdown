@@ -24,7 +24,7 @@ authored each individual CFR part.
 The fastest way to start a new corpus is to use the command
 `quantgov start corpus NAME` where NAME is the name for the corpus. This
 command will copy the skeleton corpus from
-<https://github.org/quantgov/corpus>. The skeleton corpus implements a
+<https://github.com/quantgov/corpus>. The skeleton corpus implements a
 `RecursiveDirectoryCorpusDriver` (see below), and expects a set of text
 files in a directory `data/clean` relative to the corpus base directory.
 

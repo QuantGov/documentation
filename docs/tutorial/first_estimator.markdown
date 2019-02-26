@@ -40,7 +40,7 @@ import quantgov
 
 from pathlib import Path
 
-driver = quantgov.corpora.RecursiveDirectoryCorpusDriver(
+driver = quantgov.corpus.RecursiveDirectoryCorpusDriver(
     directory=Path(__file__).parent.joinpath('data', 'clean'),
     index_labels=('section', 'docno')
 )
@@ -257,7 +257,7 @@ and `model.cfg`. Open the `model_evaluation.csv` file in your favorite
 spreadsheet editor. Each row of the CSV represents a single candidate
 model and set of parameters. The most directly relevant columns are
 `mean_train_score` and `std_train_score`, which contain the mean and
-standard distribution for the evaluation metric---in our case, the F1
+standard deviation for the evaluation metric---in our case, the F1
 score---for that model with that set of parameters. A good rule of thumb
 is to use the simplest model that's within one standard deviation of the
 best-performing version.

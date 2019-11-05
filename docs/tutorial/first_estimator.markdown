@@ -40,7 +40,7 @@ import quantgov
 
 from pathlib import Path
 
-driver = quantgov.corpora.RecursiveDirectoryCorpusDriver(
+driver = quantgov.corpus.RecursiveDirectoryCorpusDriver(
     directory=Path(__file__).parent.joinpath('data', 'clean'),
     index_labels=('section', 'docno')
 )
@@ -136,7 +136,7 @@ def create_label(streamer):
     """
     Assign a label to a set of documents using a CountVectorizer
     Arguments:
-    * streamer: a quantgov.corpora.CorpusStreamer object
+    * streamer: a quantgov.corpus.CorpusStreamer object
     Returns: a quantgov.estimator.Labels object
     """
     label_names = ('randomly_true',)

@@ -2,32 +2,29 @@
 
 With a fully-built `QuantGov` corpus and an estimator, it's now possible
 to build a full set of analyses into a dataset. Generally that will mean
-running a number of natural language analyses as well as a number of
+running a number of natural language analyses, as well as a number of machine
+learning analyses using the estimator.
 
 ## Running NLP Analyses
 
-As discussed [earlier](./natural_language_analysis.markdown),
-
 Let's start by running two built-in QuantGov analyses: the standard word
 count, and the conditional count, which gives one measure of the
-complexity of the document. Run these two commands:
+complexity of the document. Run these two commands from the corpus
+root directory:
 
 ``` {.bash}
-quantgov nlp count_words corpus-fr-2016 -o wordcount.csv
-quantgov nlp count_conditionals corpus-fr-2016 -o conditionals.csv
+quantgov nlp count_words . -o wordcount.csv
+quantgov nlp count_conditionals . -o conditionals.csv
 ```
 
 ## Running Machine Learning Analyses
 
 Now we are ready to add in the machine learning estimates from the
-estimator we trained earlier. Start by copying the
-`is_world_classifier.qge` file from the estimator's `data` directory
-into the directory where you created the corpora and estimators.
-
-Now run the following command:
+estimator we trained earlier. Run the following command from the
+estimator root directory:
 
 ``` {.bash}
-quantgov ml estimate is_world_classifier.qge corpus-fr-2016 -o is_world.csv
+quantgov ml estimate data/is_world_classifier.qge ../corpus-fr-2016 -o is_world.csv
 ```
 
 Open the resulting `is_world.csv` in a spreadsheet editor or statistical
@@ -46,10 +43,10 @@ improve those scores even more.
 
 QuantGov can also produce probability estimates instead of
 classifications, by adding the `--probability` flag. Run the following
-command:
+command from the estimator root directory:
 
 ``` {.bash}
-quantgov ml estimate is_world_classifier.qge corpus-fr-2016 --probability -o is_world_prob.csv
+quantgov ml estimate data/is_world_classifier.qge ../corpus-fr-2016 --probability -o is_world_prob.csv
 ```
 
 Open the resulting `is_world_prob.csv` and you will see that instead of
@@ -100,6 +97,9 @@ Now in that folder, run the command:
 ``` {.bash}
 python combine_datasets.py -o fr2016_isworld.csv wordcount.csv conditionals.csv is_world.csv is_world_prob.csv
 ```
+
+Note: These files must be contained in a common directory for this
+script to work properly.
 
 The resulting `fr2016_isworld.csv` file will have all the results
 generated, ready for further analysis and distribution. Similar scripts
